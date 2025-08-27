@@ -24,6 +24,10 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/", (req, res)=>{
+    res.send("Server is running")
+})
+
 router.post("/send/mail", async (req, res, next) => {
   const { name, email, message } = req.body;
   if (!name || !email || !message) {
