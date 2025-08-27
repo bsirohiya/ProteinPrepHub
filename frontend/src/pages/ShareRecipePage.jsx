@@ -14,7 +14,7 @@ const ShareRecipePage=()=>{
     setLoading(true);
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/send/mail",
+        `${import.meta.env.VITE_BACKEND_URL}/send/mail`,
         {
           name,
           email,
