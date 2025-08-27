@@ -1,10 +1,13 @@
 import express from "express";
 import { config } from "dotenv";
 import cors from "cors";
+import "dotenv/config"
 import  {sendEmail}  from "./utils/sendEmail.js";
 
 const app = express();
 const router = express.Router();
+
+const PORT = process.env.PORT  || 4001
 
 config({ path: "./config.env" });
 
@@ -52,6 +55,6 @@ router.post("/send/mail", async (req, res, next) => {
 
 app.use(router);
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server listening at port ${process.env.PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server listening at port ${PORT}`);
 });
